@@ -29,4 +29,3 @@ jobs:
         body:
           PR Creation testing as a part of CI
         token: ${{ secrets.GITHUB_TOKEN }}
-        delete-branch: true
