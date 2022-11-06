@@ -1,0 +1,26 @@
+# Default values for flask-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+namespace: nitinchauhan
+image:
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+service:
+  name: nginx
+  externalPort: 80
+  internalPort: 5000
+ingress:
+  enabled: true
+  ingressClass: alb-shared
+  # Used to create an Ingress record.
+  hosts:
+    -  nitingitactiontest.sandbox.barco.cloud
+  annotations:
+    kubernetes.io/tls-acme: "true"
+  tls:
+    - secretName: nitingitactiontest.sandbox.barco.cloud
+      hosts:
+       -  nitingitactiontest.sandbox.barco.cloud
+resources: {}
