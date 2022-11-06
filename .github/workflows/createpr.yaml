@@ -21,7 +21,7 @@ jobs:
     - name: raise a new pr
       uses: peter-evans/create-pull-request@v3
       with:
-        branch: "auto-pr-branch"
+        branch: "staging"
         base: main
         title: "This PR is created automatically"
         committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
@@ -29,4 +29,3 @@ jobs:
         body:
           PR Creation testing as a part of CI
         token: ${{ secrets.GITHUB_TOKEN }}
-        delete-branch: true
