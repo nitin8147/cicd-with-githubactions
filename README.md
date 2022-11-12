@@ -1,2 +1,3 @@
-line 1
-line 2
+line 1 \n
+line 2 \n
+line 3
