@@ -1,2 +1,2 @@
-line 1 /n
-
+line 1
+line 2
