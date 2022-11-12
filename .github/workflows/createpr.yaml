@@ -2,8 +2,8 @@ name: Auto PR Generator
 
 on:
   push:
-    tags:
-    - '*-release-v[0-9]+.[0-9]+.[0-9]+'
+    branches:
+    - production
 
 jobs:
   autopr:
