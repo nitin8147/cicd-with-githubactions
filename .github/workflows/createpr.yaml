@@ -11,24 +11,23 @@ jobs:
     steps:
     - name: checkout the code
       uses: actions/checkout@v2
-      with:
-        ref: '*-release-v[0-9]+.[0-9]+.[0-9]+'
+      run: git checkout HEAD^
           
     - name: extract the git commit
       uses: rlespinasse/git-commit-data-action@v1
     
     - name: Author information
-      run: echo "Changes authored by ${{ env.GIT_COMMIT_AUTHOR_NAME }}"
+      run: echo "Changes authored by ${{ env.GIT_COMMIT_AUTHOR_NAME }} with commitsha ${{ env.GIT_COMMIT_SHA }}"
 
-    - name: raise a new pr
-      uses: peter-evans/create-pull-request@v3
-      with:
-        branch: auto-pr
-        base: main
-        title: "This PR is created automatically"
-        committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-        author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
-        body:
-          PR Creation testing as a part of CI
-        token: ${{ secrets.PAT }}
-        delete-branch: true
+    # - name: raise a new pr
+    #   uses: peter-evans/create-pull-request@v3
+    #   with:
+    #     branch: auto-pr
+    #     base: main
+    #     title: "This PR is created automatically"
+    #     committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
+    #     author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
+    #     body:
+    #       PR Creation testing as a part of CI
+    #     token: ${{ secrets.PAT }}
+    #     delete-branch: true
