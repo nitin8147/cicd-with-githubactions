@@ -11,9 +11,6 @@ jobs:
     steps:
     - name: checkout the code
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 2
-    - run: git checkout HEAD^
           
     - name: extract the git commit
       uses: rlespinasse/git-commit-data-action@v1
@@ -24,6 +21,7 @@ jobs:
     - name: raise a new pr
       uses: peter-evans/create-pull-request@v3
       with:
+        branch: production
         base: main
         title: "This PR is created automatically"
         committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
