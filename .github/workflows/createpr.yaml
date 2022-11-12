@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: checkout the code
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
     - run: git checkout HEAD^
           
     - name: extract the git commit
