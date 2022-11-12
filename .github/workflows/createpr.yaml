@@ -11,8 +11,6 @@ jobs:
     steps:
     - name: checkout the code
       uses: actions/checkout@v3
-      with:
-        ref: production
 
     - name: extract the git commit
       uses: rlespinasse/git-commit-data-action@v1
